@@ -15,26 +15,6 @@ header {
     color: white;
     text-align: center;
   }
-
-  .buttons {
-    margin-top: 30px;
-}
- 
-#btn-0, #btn-1, #btn-2, #btn-3 {
-    background-color: #01BBFF;
-    width: 250px;
-    font-size: 20px;
-    color: #fff;
-    border: 1px solid #1D3C6A;
-    margin: 10px 40px 10px 0px;
-    padding: 10px 10px;
-}
- 
-#btn-0:hover, #btn-1:hover, #btn-2:hover, #btn-3:hover {
-    cursor: pointer;
-    background-color: #01BBFF;
-}
- 
-#btn-0:focus, #btn-1:focus, #btn-2:focus, #btn-3:focus {
-    outline: 0;
+.quiz {
+    background-color: teal;
 }
