@@ -15,7 +15,13 @@
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">
           <h1 class="display-4">Interactive Coding Quiz</h1>
-          <p class="lead"></p>
+          <p class="lead">press start to play!</p>
+        </div>
+      </div>
+
+      <div class='modal-body text-center' id="modal">
+        <div class='container-fuid'>
+          <button type="button" class="btn btn-outline-primary" id='startbtn'>start</button>
         </div>
       </div>
 
@@ -24,12 +30,15 @@
         <hr>
         <div class="card-body container ">
           <div class="row">
-              <button class="col-md-6 btn btn-outline-primary btn-1" ></button>
-              <button class="col-md-6 btn btn-outline-primary btn-2"></button>
+              <button class="col-md-6 btn btn-outline-primary btn-1" id ='btn-1'></button>
+              <button class="col-md-6 btn btn-outline-primary btn-2" id='btn-2'></button>
           </div>
           <div class="row">
-              <button class="col-md-6 btn btn-outline-primary btn-3"></button>
-              <button class="col-md-6 btn btn-outline-primary btn-4"></button>
+              <button class="col-md-6 btn btn-outline-primary btn-3" id='btn-3'></button>
+              <button class="col-md-6 btn btn-outline-primary btn-4" id='btn-4'></button>
+          </div>
+          <div class='row'>
+            <div class='col-sm-12 btn btn-outline-primary btn-next' id='nextbutton'></div>
           </div>
         </div>
       </div>
