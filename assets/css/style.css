@@ -1,20 +1,36 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
 .jumbotron {
     background-color: black;
+    color: white;
 }
 
 header {
+    background-color: black;
     color: white;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:  black;
-    color: white;
-    text-align: center;
-  }
-.quiz {
-    background-color: teal;
+.divh2 {
+    display: inline-block;
+    float: right;
 }
+
+.divh1 {
+    display: inline-block;
+}
+
+body {
+    background-color:black;
+    color: white;
+
+}
+
+.btn {
+    padding: 3em;;
+}
+
+

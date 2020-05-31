@@ -8,25 +8,34 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <main class='container'>
-        <div id='question-container' class='hide'>
-            <div id='question'>question</div>
-            <div id='answer-buttons' class='btn-grid'>
-                <button class='btn'>answer</button>
-                <button class='btn'>answer</button>
-                <button class='btn'>answer</button>
-                <button class='btn'>answer</button>
-            </div>
+    <header>
+        <div class='divh1'>highscores:</div>
+        <div class="divh2">timer:</div>
+    </header>
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-4">Interactive Coding Quiz</h1>
+          <p class="lead"></p>
         </div>
+      </div>
+
+      <div class="card" style="width: 30rem;">
+        <h2 class='text-center' id="question"></h2>
+        <hr>
+        <div class="card-body container ">
+          <div class="row">
+              <button class="col-md-6 btn btn-outline-primary btn-1" ></button>
+              <button class="col-md-6 btn btn-outline-primary btn-2"></button>
+          </div>
+          <div class="row">
+              <button class="col-md-6 btn btn-outline-primary btn-3"></button>
+              <button class="col-md-6 btn btn-outline-primary btn-4"></button>
+          </div>
+        </div>
+      </div>
+
+
     
-        <div class='controls'>
-            <button id='start-btn' class='start-btn btn'>start</button>
-            <button id='start-btn' class='next-btn btn'>next</button>
-        </div>
-    </main>
-
-
-
 
 
     <script src="assets/js/script.js"></script>
