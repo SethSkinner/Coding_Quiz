@@ -1,15 +1,15 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+const startbutton = document.getElementById('start-btn')
+const nextbutton = document.getElementById('next-btn')
+const questionbox = document.getElementById('questionbox')
+const question = document.getElementById('question')
+const answerbtns = document.getElementById('answerbtns')
 
 let shuffledQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
+startbutton.addEventListener('click', startGame)
+nextbutton.addEventListener('click', () => {
   currentQuestionIndex++
-  setNextQuestion();
+  setNextQuestion()
 })
 
 function startGame() {
