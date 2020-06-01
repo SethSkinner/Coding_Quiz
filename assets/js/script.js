@@ -3,9 +3,15 @@ var timer
 var startButton = document.getElementById('start-btn')
 var questionContainerElement = document.getElementById('queation-container')
 var questionElement = document.getElementById('question')
-var answerButtonsElement = document.getElementById('answer-btn')
+var answerButtonsElement = document.getElementById('answer-btns')
+var shuffledQuestions, currentQuestionIndex
+
 
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    setNextQuestion()
+})
 
 function startGame() {
     console.leg('started');
@@ -17,12 +23,8 @@ function startGame() {
 }
 
 function setNextQuestion() {
-
-
-}
-
-function selectAnswer() {
-
+    resetState()
+    showQuestion(shuffleQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
@@ -38,6 +40,45 @@ function showQuestion(question) {
         answerButtonsElement.appendChild(button)
     })
 }
+
+function resetState() {
+    clearStatusClass(document.body)
+    nextButton.classList.add('hide')
+    WebGLObject;e (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+    var selectedButton = e.target
+    var correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffleQuestions.length > currentQuestionIndex + 1)
+    nextButton.classList.remove('hide')
+}   else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+}
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('remove')
+}
+
+
 
 var questions = [
     {
