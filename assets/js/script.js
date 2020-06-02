@@ -1,64 +1,71 @@
-const startbutton = document.getElementById('start-btn')
-const nextbutton = document.getElementById('next-btn')
-const questionbox = document.getElementById('questionbox')
-const question = document.getElementById('question')
-const answerbtns = document.getElementById('answerbtns')
+var start = document.querySelector('#start')
+var next = document.querySelector('#next')
+var questionbox = document.querySelector('#questionbox')
+var questiontext = document.querySelector('#question')
+var answerButtons = document.querySelector('#answerbtn')
+var randomQuestions, questionIndex
 
-let shuffledQuestions, currentQuestionIndex
-
-startbutton.addEventListener('click', startGame)
-nextbutton.addEventListener('click', () => {
-  currentQuestionIndex++
+start.addEventListener('click', startGame)
+next.addEventListener('click', () => {
+  questionIndex++
   setNextQuestion()
 })
 
 function startGame() {
-  startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
-  setNextQuestion()
+  start.classList.add('hide')
+  randomQuestions = questions.sort(() => Math.random() - .5)
+  questionIndex = 0
+  questionbox.classList.remove('hide')
+  setNextQuestion();
+
+  function countDown(secs,elem) {
+    var timer = document.querySelector('#timer');
+    timer.innerHTML = secs;
+    secs--;
+    var time = setTimeout('countDown('+secs+'')
+  }
 }
 
 function setNextQuestion() {
   resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+  showQuestion(randomQuestions[questionIndex])
 }
 
 function showQuestion(question) {
-  questionElement.innerText = question.question
+  questiontext.innerText = question.question
   question.answers.forEach(answer => {
-    const button = document.createElement('button')
+    var button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+    answerButtons.appendChild(button)
   })
 }
 
+
 function resetState() {
   clearStatusClass(document.body)
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  next.classList.add('hide')
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild)
   }
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
+  var selectedButton = e.target
+  var correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(answerButtons.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
+  if (randomQuestions.length > questionIndex + 1) {
+    next.classList.remove('hide')
   } else {
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
+    start.innerText = 'Restart'
+    start.classList.remove('hide')
   }
 }
 
@@ -76,37 +83,95 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-const questions = [
+var questions = [
   {
-    question: 'What is 2 + 2?',
+    question: 'What is JavaScript?',
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false }
+      { text: 'a coding language', correct: true },
+      { text: 'a type of coffee', correct: false },
+      { text: 'a kind of bug', correct: false },
+      { text: 'the name of my dog', correct: false }
     ]
   },
   {
-    question: 'Who is the best YouTuber?',
+    question: 'What do we use to select elements on a page with JS?',
     answers: [
-      { text: 'Web Dev Simplified', correct: true },
-      { text: 'Traversy Media', correct: true },
-      { text: 'Dev Ed', correct: true },
-      { text: 'Fun Fun Function', correct: true }
+      { text: '.querrySelector', correct: true },
+      { text: '.getElementById', correct: true },
+      { text: '.createElement', correct: false },
+      { text: '.setClass', correct: false }
     ]
   },
   {
-    question: 'Is web development fun?',
+    question: 'who invented JavaScript?',
     answers: [
-      { text: 'Kinda', correct: false },
-      { text: 'YES!!!', correct: true },
-      { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
+      { text: 'Bill Gates', correct: false },
+      { text: 'Steve Wozniak', correct: false },
+      { text: 'Steve Jobs', correct: false },
+      { text: 'Brendan Eich', correct: true }
     ]
   },
   {
-    question: 'What is 4 * 2?',
+    question: 'how do we select elements with querrySelector?',
     answers: [
-      { text: '6', correct: false },
-      { text: '8', correct: true }
+      { text: '("element-id")', correct: false },
+      { text: '("#element-id")', correct: true },
+      { text: '#element-id', correct: false },
+      { text: 'element-id', correct: false }
     ]
-  }
+  },
+  {
+    question: 'What can JavaScript be used for?',
+    answers: [
+      { text: 'animating webpages', correct: true },
+      { text: 'adding interactivity to webpages', correct: true },
+      { text: 'building the frame for a webpage', correct: true },
+      { text: 'changing style properties of a webpage', correct: true }
+    ]
+  },
+  {
+    question: 'what do we use to watch for events in Js?',
+    answers: [
+      { text: '.Math.floor', correct: false },
+      { text: '.Math.Random', correct: false },
+      { text: '.Math.ceiling', correct: false },
+      { text: '.addEventListener', correct: true }
+    ]
+  },
+  {
+    question: 'how do you change the innertext in JavaScript?',
+    answers: [
+      { text: '.inner', correct: false },
+      { text: '.innerText', correct: true },
+      { text: '.text', correct: false },
+      { text: '.html', correct: false }
+    ]
+  },
+  {
+    question: 'How do you add html with JavaScript?',
+    answers: [
+      { text: '.html', correct: false },
+      { text: '.inner', correct: false },
+      { text: '.innerHTML', correct: true },
+      { text: '.innerhtml', correct: false }
+    ]
+  },
+  {
+    question: 'how do you change style properties in JS?',
+    answers: [
+      { text: '.css', correct: false },
+      { text: '.style', correct: false },
+      { text: '.cssstyle', correct: false },
+      { text: '.setAttribute', correct: true }
+    ]
+  },
+  {
+    question: 'What is JavaScript?',
+    answers: [
+      { text: '.append', correct: true },
+      { text: '.child', correct: false },
+      { text: '.childappened', correct: false },
+      { text: '', correct: false }
+    ]
+  },
 ]

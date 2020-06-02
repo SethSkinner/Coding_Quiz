@@ -5,24 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="assets/css/style.css" rel="stylesheet">
-  <script defer src="assets/js/script.js"></script>
-  <title>Quiz App</title>
+  <title>Javascript Coding Quiz</title>
 </head>
 <body>
-  <section class="container">
+  <div class="container">
     <div id="questionbox" class="hide">
-      <div id="question">Question</div>
-      <div id="answer-buttons" class="btn-grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
+      <div id="question"></div>
+      <div id="answerbtn" class="btn-grid">
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></buttbon>
+        <button class="btn"></button>
       </div>
     </div>
     <div class="controls">
-      <button id="start-btn" class="start-btn btn">Start</button>
-      <button id="next-btn" class="next-btn btn hide">Next</button>
+      <button id="start" class="start btn">Start</button>
+      <button id="next" class="next btn hide">Next</button>
+    </div>
+    <div class='score-time'>
+      <div id="highscore"></div>
+      <div id='timer'></div>
     </div>
   </div>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
