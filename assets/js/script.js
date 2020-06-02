@@ -80,18 +80,23 @@ function selectAnswer(e) {
   }
 }
 
-function checkAnswer() {
-  if (document.body.correct) {
-    score.innerHTML = score++
+function setStatusClass(element, correct) {
+  var score1 = 1
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct');
+    score.innerHTML = score1++
+  } else {
+    element.classList.add('wrong')
+    score.innerHTML = score1--
   }
 }
 
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
+function checkAnswer(element, correct) {
+  checkAnswer(element)
   if (correct) {
-    element.classList.add('correct')
-  } else {
-    element.classList.add('wrong')
+    score.innerHTML = score1
+    score1++
   }
 }
 
