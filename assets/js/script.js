@@ -4,6 +4,7 @@ var questionbox = document.querySelector('#questionbox')
 var questiontext = document.querySelector('#question')
 var answerButtons = document.querySelector('#answerbtn')
 var randomQuestions, questionIndex
+var score = document.querySelector('#gamescore')
 
 start.addEventListener('click', startGame)
 next.addEventListener('click', () => {
@@ -17,14 +18,24 @@ function startGame() {
   questionIndex = 0
   questionbox.classList.remove('hide')
   setNextQuestion();
-
-  function countDown(secs,elem) {
-    var timer = document.querySelector('#timer');
-    timer.innerHTML = secs;
-    secs--;
-    var time = setTimeout('countDown('+secs+'')
+  
+  var timer = setInterval(function() {
+    var minutes = Math.floor(time/60);
+    let seconds = time % 60;
+    seconds= seconds <10 ? `0` + seconds : seconds;
+  if(time <= 0){
+    clearInterval(timer);
+    window.open('highscores.html');
+  } else {
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
   }
-}
+  time -= 1;
+ }, 1000);
+};
+
+var timeleft = 1;
+let time= timeleft * 60;
+var countdownEl = document.querySelector("#timer");
 
 function setNextQuestion() {
   resetState()
@@ -66,6 +77,12 @@ function selectAnswer(e) {
   } else {
     start.innerText = 'Restart'
     start.classList.remove('hide')
+  }
+}
+
+function checkAnswer() {
+  if (document.body.correct) {
+    score.innerHTML = score++
   }
 }
 
