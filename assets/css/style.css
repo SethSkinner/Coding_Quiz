@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-family: Gotham Rounded;
 }
-/*setting hue variables with css variables to 
+/*setting hue variables with css variables to*/
 :root {
   --hue-neutral: 200;
   --hue-wrong: 0;
