@@ -1,23 +1,24 @@
-var start = document.querySelector('#start')
-var next = document.querySelector('#next')
-var questionbox = document.querySelector('#questionbox')
-var questiontext = document.querySelector('#question')
-var answerButtons = document.querySelector('#answerbtn')
-var randomQuestions, questionIndex
-var score = document.querySelector('#gamescore')
-var score1 = 1
+var start = document.querySelector('#start');
+var next = document.querySelector('#next');
+var questionbox = document.querySelector('#questionbox');
+var questiontext = document.querySelector('#question');
+var answerButtons = document.querySelector('#answerbtn');
+var randomQuestions, questionIndex;
+var score = document.querySelector('#gamescore');
+var score1 = 1;
+var body = document.querySelector('#body');
 
-start.addEventListener('click', startGame)
+start.addEventListener('click', startGame);
 next.addEventListener('click', () => {
-  questionIndex++
+  questionIndex++;
   setNextQuestion()
 })
 
 function startGame() {
-  start.classList.add('hide')
-  randomQuestions = questions.sort(() => Math.random() - .5)
-  questionIndex = 0
-  questionbox.classList.remove('hide')
+  start.classList.add('hide');
+  randomQuestions = questions.sort(() => Math.random() - .5);
+  questionIndex = 0;
+  questionbox.classList.remove('hide');
   setNextQuestion();
   
   var timer = setInterval(function() {
@@ -35,65 +36,66 @@ function startGame() {
 };
 
 var timeleft = 1;
-let time= timeleft * 60;
+let time = timeleft * 60;
 var countdownEl = document.querySelector("#timer");
 
 function setNextQuestion() {
-  resetState()
-  showQuestion(randomQuestions[questionIndex])
+  resetState();
+  showQuestion(randomQuestions[questionIndex]);
 }
 
 function showQuestion(question) {
-  questiontext.innerText = question.question
+  questiontext.innerText = question.question;
   question.answers.forEach(answer => {
-    var button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add('btn')
+    var button = document.createElement('button');
+    button.innerText = answer.text;
+    button.classList.add('btn');
     if (answer.correct) {
-      button.dataset.correct = answer.correct
+      button.dataset.correct = answer.correct;
     }
-    button.addEventListener('click', selectAnswer)
-    answerButtons.appendChild(button)
+    button.addEventListener('click', selectAnswer);
+    answerButtons.appendChild(button);
   })
 }
 
 
 function resetState() {
-  clearStatusClass(document.body)
-  next.classList.add('hide')
+  clearStatusClass(document.body);
+  next.classList.add('hide');
   while (answerButtons.firstChild) {
-    answerButtons.removeChild(answerButtons.firstChild)
+    answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 
 function selectAnswer(e) {
-  var selectedButton = e.target
-  var correct = selectedButton.dataset.correct
-  setStatusClass(answerButtons, correct)
+  var selectedButton = e.target;
+  var correct = selectedButton.dataset.correct;
+  setStatusClass(answerButtons, correct);
   Array.from(answerButtons.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
+    setStatusClass(button, button.dataset.correct);
   })
   if (randomQuestions.length > questionIndex + 1) {
-    next.classList.remove('hide')
+    next.classList.remove('hide');
   } else {
-    start.innerText = 'Restart'
-    start.classList.remove('hide')
+    start.innerText = 'Restart';
+    start.classList.remove('hide');
   }
 }
 
 function setStatusClass(element, correct) {
-  clearStatusClass(element)
+  clearStatusClass(element);
   if (correct) {
-    element.classList.add('correct')
-    score.innerHTML = score1++
+    element.classList.add('correct');
+    score.innerHTML = score1++;
   } else {
-    element.classList.add('wrong')
+    element.classList.add('wrong');
   }
 }
 
+
 function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
+  element.classList.remove('correct');
+  element.classList.remove('wrong');
 }
 
 var questions = [
@@ -188,3 +190,6 @@ var questions = [
     ]
   },
 ]
+
+rightAnswers = ['.append', '.setAttribute', '.innerHTML', '.innerText', 'a coding language', '.querrySelector', 'Brendan Eich', '("#element-id")', 'building the frame for a webpage', '.addEventListener']
+
