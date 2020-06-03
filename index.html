@@ -8,9 +8,13 @@
   <title>Javascript Coding Quiz</title>
 </head>
 <body id='body'>
+  <!--container for the quiz that will hold all contents of game-->
   <section class="container">
+    <!--contains the box where the question will be inserted-->
     <div id="questionbox" class="hide">
+      <!--the actual div that contains the question-->
       <div id="question"></div>
+      <!--buttons that will contain the answer choices-->
       <div id="answerbtn" class="btn-grid">
         <button class="btn"></button>
         <button class="btn"></button>
@@ -18,9 +22,12 @@
         <button class="btn"></button>
       </div>
     </div>
+    <!--the start and next buttons for controlling the game-->
       <button id="start" class="start btn">Start</button>
       <button id="next" class="next btn hide">Next</button>
+      <!--div for a timer to be placed-->
       <div id='timer'></div>
+      <!--div that hold the core of the user it will go up by 1 if wrong 2 if right-->
     <div id='gamescore'></div>
     </section>             
 
