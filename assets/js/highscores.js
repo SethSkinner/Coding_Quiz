@@ -1,3 +1,4 @@
+
 var usernamesscores = [];
 
 var addusernamesscores = (e) => {

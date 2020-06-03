@@ -1,3 +1,4 @@
+/*declaring variables that will needed to be called upon*/
 var start = document.querySelector('#start');
 var next = document.querySelector('#next');
 var questionbox = document.querySelector('#questionbox');
@@ -7,20 +8,20 @@ var randomQuestions, questionIndex;
 var score = document.querySelector('#gamescore');
 var score1 = 1;
 var wrong = document.body.wrong
-
+/*adds event listeners to the start and net buttons for controls*/
 start.addEventListener('click', startGame);
 next.addEventListener('click', () => {
 	questionIndex++;
 	setNextQuestion();
 });
-
+/*a function built to start the game with random questions and hide the start button after it has been clicked*/
 function startGame() {
 	start.classList.add('hide');
 	randomQuestions = questions.sort(() => Math.random() - .5);
 	questionIndex = 0;
 	questionbox.classList.remove('hide');
 	setNextQuestion();
-
+	/*this starts a timer when the first answer is chosen by the user*/
 	var timer = setInterval(function() {
 		var minutes = Math.floor(time / 60);
 		let seconds = time % 60;
@@ -34,16 +35,16 @@ function startGame() {
 		time -= 1;
 	}, 1000);
 }
-
+/*variables used in the timer*/
 var timeleft = 1;
 let time = timeleft * 60;
 var countdownEl = document.querySelector("#timer");
-
+/*function that runs to set up for the nest question*/
 function setNextQuestion() {
 	resetState();
 	showQuestion(randomQuestions[questionIndex]);
 }
-
+/*function that shows the question in the innerhtml elements of the box* and buttons*/
 function showQuestion(question) {
 	questiontext.innerText = question.question;
 	question.answers.forEach(answer => {
@@ -58,7 +59,7 @@ function showQuestion(question) {
 	});
 }
 
-
+/*function that resets that state of the body so it removes the old question*/
 function resetState() {
 	clearStatusClass(document.body);
 	next.classList.add('hide');
@@ -66,7 +67,7 @@ function resetState() {
 		answerButtons.removeChild(answerButtons.firstChild);
 	}
 }
-
+/*this function selects the event target of the user selected button and sets the answers randomly for the page also starts a data-set i need to change css props*/
 function selectAnswer(e) {
 	var selectedButton = e.target;
 	var correct = selectedButton.dataset.correct;
@@ -81,15 +82,14 @@ function selectAnswer(e) {
 		start.classList.remove('hide');
 	}
 }
-
+/*function to check answer and subtract time if its wrong*/
 function checkAnswer() {
-  if(answerButtons === document.body.wrong) {
-    timer--;
+  if(answer.correct === 'false') {
+	timer--;
   }
 }
-
+/*this sets elements on the body to body.wrong or body.correct which allows me to style the buttons and let users know if they are right or wrong*/
 function setStatusClass(element, correct) {
-  checkAnswer()
 	clearStatusClass(element);
 	if (correct) {
 		element.classList.add('correct');
@@ -98,12 +98,12 @@ function setStatusClass(element, correct) {
 		element.classList.add('wrong');
 	}
 }
-
+/*this clears the status from the body*/
 function clearStatusClass(element) {
 	element.classList.remove('correct');
 	element.classList.remove('wrong');
 }
-
+/*questionS and answers with true and false values for the asnwers to determine when to change the color of the buttons*/
 var questions = [{
 	question: 'What is JavaScript?',
 	answers: [{
