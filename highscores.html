@@ -7,12 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/action_page.php">
-        <label for="initials">intials:</label>
-        <input type="text" id="fname" name="fname"><br><br>
-        <label for="score">score:</label>
-        <input type="text" id="lname" name="lname"><br><br>
-        <input type="submit" value="Submit">
-      </form>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+          <h1 id="finalScore"></h1>
+          <form>
+            <input type="text" name="username" id="username-score" placeholder="username-score"/>
+            <button type="submit" class="btn" id="saveScoreBtn"> Save</button>
+          </form>
+          <a class="btn play-again" href="index.html" >Play Again</a>
+        </div>
+      </div>
 </body>
 </html>

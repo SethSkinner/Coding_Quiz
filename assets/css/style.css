@@ -30,6 +30,7 @@ body.wrong {
 }
 
 .container {
+  text-align: center;
   height: 30%;
   width: 800px;
   max-width: 80%;
@@ -79,4 +80,12 @@ body.wrong {
 
 .hide {
   display: none;
+}
+
+#username-score {
+  margin-bottom: 3rem;
+}
+
+.play-again{
+  margin-left: 14rem;
 }
