@@ -2,13 +2,13 @@
   box-sizing: border-box;
   font-family: Gotham Rounded;
 }
-
+/*setting hue variables with css variables to 
 :root {
   --hue-neutral: 200;
   --hue-wrong: 0;
   --hue-correct: 145;
 }
-
+/*styles the body and applies the hue variable set in css*/
 body {
   background-color: blue;
   --hue: var(--hue-neutral);
@@ -20,15 +20,15 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+/*this applies to the body when the answer selected is correct*/
 body.correct {
   --hue: var(--hue-correct);
 }
-
+/*this applies to the body when the answer selected is wrong*/
 body.wrong {
   --hue: var(--hue-wrong);
 }
-
+/*properties set for the container of all the elements on the html page used in the quiz*/
 .container {
   text-align: center;
   height: 30%;
@@ -38,14 +38,14 @@ body.wrong {
   border-radius: 5px;
   padding: 10px;
 }
-
+/*properties to set up the buttons to be 2 on top 2 on bottom*/
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 10px;
   margin: 20px 0;
 }
-
+/*general button style applied*/
 .btn {
   --hue: var(--hue-neutral);
   border: 1px solid hsl(var(--hue), 100%, 30%);
@@ -56,32 +56,32 @@ body.wrong {
   outline: none;
 }
 
-
+/*styles applied to buttons when the buttons answer is correct*/
 .btn.correct {
   --hue: var(--hue-correct);
   color: black;
 }
-
+/*styles applied to buttons when the buttons answer is wrong*/
 .btn.wrong {
   --hue: var(--hue-wrong);
 }
-
+/*styles applied to the start and next buttons on the page*/
 .start, .next {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
 }
-
+/*more styles for the control buttons on the page*/
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+/*property to hide elements like the start button*/
 .hide {
   display: none;
 }
-
+/*styling elements on highscores.html*/
 #username-score {
   margin-bottom: 3rem;
 }
