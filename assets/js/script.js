@@ -5,6 +5,7 @@ var questiontext = document.querySelector('#question')
 var answerButtons = document.querySelector('#answerbtn')
 var randomQuestions, questionIndex
 var score = document.querySelector('#gamescore')
+var score1 = 1
 
 start.addEventListener('click', startGame)
 next.addEventListener('click', () => {
@@ -68,7 +69,7 @@ function resetState() {
 function selectAnswer(e) {
   var selectedButton = e.target
   var correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
+  setStatusClass(answerButtons, correct)
   Array.from(answerButtons.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
@@ -81,22 +82,12 @@ function selectAnswer(e) {
 }
 
 function setStatusClass(element, correct) {
-  var score1 = 1
   clearStatusClass(element)
   if (correct) {
-    element.classList.add('correct');
+    element.classList.add('correct')
     score.innerHTML = score1++
   } else {
     element.classList.add('wrong')
-    score.innerHTML = score1--
-  }
-}
-
-function checkAnswer(element, correct) {
-  checkAnswer(element)
-  if (correct) {
-    score.innerHTML = score1
-    score1++
   }
 }
 
@@ -119,7 +110,7 @@ var questions = [
     question: 'What do we use to select elements on a page with JS?',
     answers: [
       { text: '.querrySelector', correct: true },
-      { text: '.getElementById', correct: true },
+      { text: '.getElement', correct: false },
       { text: '.createElement', correct: false },
       { text: '.setClass', correct: false }
     ]
@@ -145,10 +136,10 @@ var questions = [
   {
     question: 'What can JavaScript be used for?',
     answers: [
-      { text: 'animating webpages', correct: true },
-      { text: 'adding interactivity to webpages', correct: true },
+      { text: 'walking your dog', correct: false },
+      { text: 'making a sandwhich', correct: false },
       { text: 'building the frame for a webpage', correct: true },
-      { text: 'changing style properties of a webpage', correct: true }
+      { text: 'buying clothes', correct: false }
     ]
   },
   {
